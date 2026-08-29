@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jolie Ni</title>
+<meta name="description" content="Jolie Ni. Founder of H.ai, engineer, writer. Vancouver and San Francisco.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#E9EBE2">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:title" content="Jolie Ni">
+<meta property="og:description" content="Jolie Ni. Founder of H.ai, engineer, writer. Vancouver and San Francisco.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400&amp;display=swap&amp;text=%E5%A5%87%E6%9C%B1%E8%8E%89%E8%AE%B0%E9%81%87">
+<style>
+/* ============================================================
+   Jolie Ni — rice paper, celadon, bamboo
+   Light-committed palette. Every colour is painted explicitly.
+   ============================================================ */
+:root{
+  --paper:#E9EBE2;      /* rice paper, green cast */
+  --raise:#F2F3EC;      /* lifted paper */
+  --ink:#1C221D;        /* near-black, green bias */
+  --dim:#5B6450;        /* muted body */
+  --faint:#8D9686;      /* labels */
+  --celadon:#7E9C86;    /* the accent */
+  --jade:#3D5A48;       /* links, headings */
+  --rule:#CCD1C2;       /* hairlines */
+  --wash:#DFE3D6;       /* active fill */
+  --measure:62ch;
+}
+
+
+/* ---------- type ---------- */
+:root{
+  --fd:"Jost","Futura","Century Gothic","Avenir Next",sans-serif;
+  --fb:var(--fd); --fl:var(--fd);
+  --fcjk:"Noto Sans SC","PingFang SC",sans-serif;
+  --fs-body:17px; --lh-body:1.76; --w-body:400;
+  --w-stand:300;
+  --w-name:300; --ls-name:-.012em;
+  --w-h:300; --st-h:normal; --ls-h:0em;
+  --w-sub:400;
+  --w-lab:400; --fs-lab:10.5px; --ls-lab:.24em;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  color:var(--ink);
+  font-family:var(--fb);
+  font-weight:var(--w-body); font-size:var(--fs-body); line-height:var(--lh-body);
+  -webkit-font-smoothing:antialiased;
+}
+
+.cjk{font-family:var(--fcjk); font-weight:300}
+
+/* ---------- shell ---------- */
+.paper{
+  max-width:1120px; margin:0 auto; padding:0 36px;
+  display:grid; grid-template-columns:190px minmax(0,1fr); gap:0 56px;
+  align-items:start;
+}
+.col{min-width:0; padding:0 0 0 0}
+
+/* ---------- bamboo rail ---------- */
+.rail{position:sticky; top:0; padding:150px 0 0; justify-self:end}
+.culm{list-style:none; margin:0; padding:0}
+.rail-item{
+  display:flex; align-items:center; justify-content:flex-end; gap:18px; height:66px;
+}
+.rail-item a{
+  text-decoration:none; color:var(--faint);
+  font-family:var(--fl); font-weight:var(--w-lab);
+  font-size:var(--fs-lab); letter-spacing:var(--ls-lab); text-transform:uppercase;
+  transition:color .25s ease;
+  padding:6px 0;
+}
+.rail-item a:hover{color:var(--jade)}
+.rail-item a:focus-visible{outline:1px solid var(--jade); outline-offset:4px}
+.seg{
+  width:18px; align-self:stretch;
+  border-left:1px solid var(--rule); border-right:1px solid var(--rule);
+  border-bottom:1px solid var(--celadon);
+  background:transparent;
+  transition:background-color .35s ease, border-color .35s ease;
+  position:relative;
+}
+.rail-item:first-child .seg{border-top:1px solid var(--celadon)}
+.rail-item:last-child .seg{border-bottom:1px solid var(--celadon)}
+.rail-item.on a{color:var(--jade)}
+.rail-item.on .seg{background-color:var(--wash); border-left-color:var(--celadon); border-right-color:var(--celadon)}
+.rail-item.on .seg::before{
+  content:""; position:absolute; left:50%; top:50%;
+  width:9px; height:14px; margin:-7px 0 0 -4.5px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 22' fill='none' stroke='%233D5A48' stroke-width='1.15' stroke-linecap='round'%3E%3Cpath d='M7 1.2 C 12.6 8, 11.4 16, 6.2 20.8 C 2.2 15, 2.6 7, 7 1.2 Z'/%3E%3Cpath d='M7 2.6 C 7.7 9, 7.3 15, 6.4 19.4'/%3E%3C/svg%3E");
+  background-size:contain; background-repeat:no-repeat; background-position:center;
+}
+@media (max-width:940px){
+  .paper{grid-template-columns:minmax(0,1fr); gap:0; padding:0 26px}
+  .rail{display:none}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative; padding:132px 0 58px; overflow:hidden}
+.shadow{
+  position:absolute; right:-56px; top:-24px;
+  width:min(340px,42vw); height:auto;
+  opacity:.2; filter:blur(.85px);
+  pointer-events:none;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 62%,transparent 100%);
+          mask-image:linear-gradient(to bottom,#000 0,#000 62%,transparent 100%);
+}
+@media (max-width:720px){.shadow{right:-70px; top:8px; width:220px; opacity:.13}}
+
+.seal{
+  width:54px; height:54px; margin:0 0 38px;
+  border:1px solid var(--celadon);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--celadon);
+}
+.seal span{font-family:var(--fcjk); font-weight:300; font-size:22px; line-height:1}
+
+.name{
+  font-family:var(--fd);
+  font-weight:var(--w-name); font-size:clamp(3.1rem,9vw,6rem); line-height:1.02;
+  letter-spacing:var(--ls-name); margin:0; text-wrap:balance;
+}
+.stand{
+  font-family:var(--fd);
+  font-size:clamp(1.14rem,2.3vw,1.42rem); font-weight:var(--w-stand); line-height:1.6;
+  max-width:35ch; margin:28px 0 0;
+}
+.meta{
+  list-style:none; margin:34px 0 0; padding:0;
+  display:flex; flex-wrap:wrap; gap:6px 26px;
+  font-family:var(--fl); font-weight:var(--w-lab);
+  font-size:var(--fs-lab); letter-spacing:var(--ls-lab); text-transform:uppercase; color:var(--faint);
+}
+
+/* ---------- sections ---------- */
+.sec{padding:56px 0; border-top:1px solid var(--rule)}
+.lab{
+  font-family:var(--fl); font-weight:var(--w-lab);
+  font-size:var(--fs-lab); letter-spacing:var(--ls-lab); text-transform:uppercase;
+  color:var(--celadon); margin:0 0 20px;
+}
+.h{
+  font-family:var(--fd);
+  font-weight:var(--w-h); font-style:var(--st-h); font-size:clamp(1.58rem,3.2vw,2.2rem);
+  line-height:1.25; letter-spacing:var(--ls-h); color:var(--jade);
+  margin:0 0 32px; text-wrap:balance; max-width:24ch;
+}
+.h.narrow{max-width:19ch}
+.lede{margin:0; max-width:var(--measure); font-size:1.06rem; line-height:1.85}
+.lede b{font-weight:500; color:var(--jade)}
+
+/* questions */
+.qs{list-style:none; margin:0; padding:0; counter-reset:q}
+.q{
+  padding:24px 0 24px 34px; border-top:1px dotted var(--rule);
+  position:relative; counter-increment:q;
+}
+.q:first-child{border-top:none; padding-top:0}
+.q::before{
+  content:""; position:absolute; left:1px; top:1.5em;
+  width:12px; height:19px; opacity:.85;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 22' fill='none' stroke='%237E9C86' stroke-width='1.15' stroke-linecap='round'%3E%3Cpath d='M7 1.2 C 12.6 8, 11.4 16, 6.2 20.8 C 2.2 15, 2.6 7, 7 1.2 Z'/%3E%3Cpath d='M7 2.6 C 7.7 9, 7.3 15, 6.4 19.4'/%3E%3C/svg%3E");
+  background-size:contain; background-repeat:no-repeat; background-position:center;
+  transform:rotate(-10deg);
+}
+.q:first-child::before{top:.5em}
+.qt{font-family:var(--fd); font-weight:var(--w-sub); font-size:1.24rem; line-height:1.32; margin:0 0 8px; color:var(--ink)}
+.qb{margin:0; color:var(--dim); max-width:58ch; font-size:1.01rem; line-height:1.8}
+.qb.wide{max-width:56ch}
+
+/* made */
+.made{list-style:none; margin:0; padding:0}
+.m{padding:22px 0; border-top:1px solid var(--rule)}
+.made > li:first-child > .m{border-top:none; padding-top:0}
+.mt{
+  font-family:var(--fd); font-weight:var(--w-sub); font-size:1.2rem; margin:0 0 6px;
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:0 16px;
+}
+.mt small{
+  font-family:var(--fl); font-weight:var(--w-lab);
+  font-size:var(--fs-lab); letter-spacing:var(--ls-lab); text-transform:uppercase;
+  color:var(--celadon); font-variant-numeric:tabular-nums;
+}
+.mb{margin:0; color:var(--dim); font-size:1rem; line-height:1.78; max-width:60ch}
+
+/* writing */
+.links{list-style:none; margin:0; padding:0}
+.lk{
+  padding:16px 0; border-top:1px dotted var(--rule);
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 18px;
+}
+.lk:first-child{border-top:none; padding-top:0}
+.lk a{
+  font-family:var(--fd); font-weight:var(--w-sub);
+  font-size:1.12rem; color:var(--jade); text-decoration:none;
+  border-bottom:1px solid rgba(61,90,72,.26); padding-bottom:1px;
+  transition:border-color .2s ease;
+}
+.lk a:hover{border-bottom-color:var(--jade)}
+.lk span{color:var(--dim); font-size:.97rem}
+.lk a .cjk{font-size:1.1rem}
+
+/* contact */
+.cta{padding-bottom:44px}
+.mail{
+  display:inline-block; margin-top:26px;
+  font-family:var(--fd); font-style:var(--st-h); font-weight:var(--w-h);
+  font-size:clamp(1.42rem,4vw,2.1rem); color:var(--jade);
+  text-decoration:none; border-bottom:1px solid rgba(61,90,72,.3);
+  padding-bottom:4px; transition:border-color .2s ease;
+}
+.mail:hover{border-bottom-color:var(--jade)}
+.elsewhere{
+  list-style:none; margin:44px 0 0; padding:0;
+  display:flex; flex-wrap:wrap; gap:10px 28px;
+}
+.elsewhere a{
+  font-family:var(--fl); font-weight:var(--w-lab);
+  font-size:var(--fs-lab); letter-spacing:var(--ls-lab); text-transform:uppercase;
+  color:var(--faint); text-decoration:none;
+  border-bottom:1px solid transparent; padding-bottom:3px;
+  transition:color .2s ease, border-color .2s ease;
+}
+.elsewhere a:hover{color:var(--jade); border-bottom-color:var(--celadon)}
+
+.foot{
+  display:flex; align-items:center; gap:18px;
+  padding:34px 0 74px; border-top:1px solid var(--rule);
+  font-family:var(--fl); font-weight:var(--w-lab);
+  font-size:var(--fs-lab); letter-spacing:var(--ls-lab); text-transform:uppercase; color:var(--faint);
+}
+.foot .rule{flex:1 1 auto; height:1px; background:var(--rule)}
+
+a:focus-visible{outline:1px solid var(--jade); outline-offset:4px}
+
+/* ---------- reveal ---------- */
+.js .reveal{opacity:0; transform:translateY(12px)}
+.js .reveal.in{opacity:1; transform:none; transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1)}
+@media (prefers-reduced-motion:reduce){
+  .js .reveal{opacity:1; transform:none}
+}
+
+@media (max-width:620px){
+  body{font-size:16.5px}
+  .hero{padding:74px 0 42px}
+  .sec{padding:40px 0}
+  .q{padding-left:28px}
+}
+
+
+/* ---------- currently ---------- */
+.current{
+  list-style:none; margin:30px 0 0; padding:20px 0 0; border-top:1px dotted var(--rule);
+  display:grid; gap:11px; max-width:var(--measure);
+}
+.current li{display:grid; grid-template-columns:96px 1fr; gap:0 18px; align-items:baseline}
+.ck{
+  font-size:var(--fs-lab); letter-spacing:var(--ls-lab); text-transform:uppercase;
+  color:var(--celadon);
+}
+.current li > span:last-child{color:var(--dim); font-size:.98rem; line-height:1.68}
+@media (max-width:560px){
+  .current li{grid-template-columns:1fr; gap:2px}
+}
+
+/* ---------- made: click to open ---------- */
+.m > summary{
+  list-style:none; cursor:pointer; display:block; position:relative;
+  padding-right:64px;
+}
+.m > summary::-webkit-details-marker{display:none}
+.m > summary:focus-visible{outline:1px solid var(--jade); outline-offset:6px}
+.cue{
+  position:absolute; right:0; top:.2em;
+  font-size:var(--fs-lab); letter-spacing:var(--ls-lab); text-transform:uppercase;
+  color:var(--faint); transition:color .2s ease;
+}
+.m > summary:hover .cue{color:var(--jade)}
+.m[open] .cue{color:var(--celadon)}
+.m[open] .cue::after{content:" \2212"}
+.m:not([open]) .cue::after{content:" +"}
+.mx{
+  margin:16px 0 2px; padding-left:18px; border-left:1px solid var(--rule);
+  max-width:58ch;
+}
+.mx p{margin:0 0 12px; color:var(--dim); font-size:.99rem; line-height:1.8}
+.mx p:last-child{margin-bottom:0}
+@media (prefers-reduced-motion:no-preference){
+  .m[open] .mx{animation:openx .4s ease both}
+}
+@keyframes openx{from{opacity:0; transform:translateY(-4px)}to{opacity:1; transform:none}}
+
+/* ---------- route: a culm laid on its side ---------- */
+.route{
+  list-style:none; margin:0; padding:0;
+  display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:0;
+}
+.stop{display:flex; flex-direction:column}
+.city{
+  margin:0 0 12px; padding-right:22px; font-size:var(--fs-lab); letter-spacing:var(--ls-lab);
+  text-transform:uppercase; color:var(--jade);
+}
+.joint{
+  display:block; height:15px;
+  border-top:1px solid var(--celadon); border-bottom:1px solid var(--celadon);
+  border-right:1px solid var(--celadon);
+}
+.stop:first-child .joint{border-left:1px solid var(--celadon)}
+.sb{padding:14px 22px 0 0}
+.yr{
+  margin:0 0 6px; font-size:11.5px; letter-spacing:.1em;
+  color:var(--faint); font-variant-numeric:tabular-nums;
+}
+.line{margin:0; color:var(--dim); font-size:.92rem; line-height:1.62}
+@media (max-width:760px){
+  .route{grid-template-columns:minmax(0,1fr); gap:0}
+  .stop{
+    display:grid; grid-template-columns:15px 1fr; grid-template-areas:"joint city" "joint body";
+    gap:0 20px; padding:0; align-items:start;
+  }
+  .city{grid-area:city; margin:0 0 6px}
+  .joint{
+    grid-area:joint; height:auto; align-self:stretch; min-height:64px; margin:0;
+    border:1px solid var(--celadon); border-top:0;
+  }
+  .stop:first-child .joint{border-top:1px solid var(--celadon)}
+  .sb{grid-area:body; padding:0 0 22px}
+  .city{padding-right:0}
+}
+
+</style>
+</head>
+<body>
+<div class="paper">
+
+<nav class="rail" aria-label="Sections">
+  <ol class="culm">
+    <li class="rail-item"><a href="#now"><span class="lbl">Now</span></a><span class="seg" aria-hidden="true"></span></li>
+    <li class="rail-item"><a href="#questions"><span class="lbl">Questions</span></a><span class="seg" aria-hidden="true"></span></li>
+    <li class="rail-item"><a href="#made"><span class="lbl">Made</span></a><span class="seg" aria-hidden="true"></span></li>
+    <li class="rail-item"><a href="#route"><span class="lbl">Route</span></a><span class="seg" aria-hidden="true"></span></li>
+    <li class="rail-item"><a href="#writing"><span class="lbl">Writing</span></a><span class="seg" aria-hidden="true"></span></li>
+    <li class="rail-item"><a href="#contact"><span class="lbl">Contact</span></a><span class="seg" aria-hidden="true"></span></li>
+  </ol>
+</nav>
+
+<main class="col">
+
+  <header class="hero">
+    <svg class="shadow" viewBox="0 0 340 560" fill="none" aria-hidden="true">
+      <defs>
+        <g id="lf" stroke="#3D5A48" stroke-width="1.15" stroke-linecap="round" fill="none">
+          <path d="M0 0 C 24 -9, 44 -5, 58 4 C 42 11, 17 10, 0 0 Z"/>
+          <path d="M3 0.6 C 20 1.6, 38 3, 55 4.2"/>
+        </g>
+      </defs>
+      <g stroke="#3D5A48" fill="none" stroke-linecap="round">
+        <path d="M132 -30 L112 570" stroke-width="1.8"/>
+        <path d="M129.4 70 L124.6 70 M126.2 170 L121.4 170 M123 272 L118.2 272 M119.8 386 L115 386 M116.6 492 L111.8 492" stroke-width="1.8"/>
+        <path d="M222 -30 L206 570" stroke-width="1.05"/>
+        <path d="M219.2 118 L215.4 118 M215.4 256 L211.6 256 M211.6 400 L207.8 400" stroke-width="1.05"/>
+        <path d="M126.2 170 C 152 160, 172 146, 184 128" stroke-width="1"/>
+        <path d="M123 272 C 98 266, 76 252, 64 232" stroke-width="1"/>
+        <path d="M119.8 386 C 146 378, 166 366, 178 348" stroke-width="1"/>
+        <path d="M219.2 118 C 232 112, 240 104, 246 96" stroke-width=".95"/>
+        <path d="M215.4 256 C 240 246, 260 232, 272 214" stroke-width=".95"/>
+        <path d="M211.6 400 C 236 396, 254 388, 268 376" stroke-width=".95"/>
+      </g>
+      <use href="#lf" transform="translate(184,128) rotate(-44) scale(.82)"/>
+      <use href="#lf" transform="translate(184,128) rotate(-16) scale(.9)"/>
+      <use href="#lf" transform="translate(184,128) rotate(14) scale(.74)"/>
+      <use href="#lf" transform="translate(64,232) rotate(206) scale(.8)"/>
+      <use href="#lf" transform="translate(64,232) rotate(178) scale(.88)"/>
+      <use href="#lf" transform="translate(64,232) rotate(152) scale(.7)"/>
+      <use href="#lf" transform="translate(178,348) rotate(-36) scale(.76)"/>
+      <use href="#lf" transform="translate(178,348) rotate(-8) scale(.84)"/>
+      <use href="#lf" transform="translate(178,348) rotate(20) scale(.66)"/>
+      <use href="#lf" transform="translate(246,96) rotate(-48) scale(.58)"/>
+      <use href="#lf" transform="translate(246,96) rotate(-20) scale(.64)"/>
+      <use href="#lf" transform="translate(272,214) rotate(-32) scale(.6)"/>
+      <use href="#lf" transform="translate(272,214) rotate(-2) scale(.68)"/>
+      <use href="#lf" transform="translate(268,376) rotate(-24) scale(.58)"/>
+      <use href="#lf" transform="translate(268,376) rotate(6) scale(.62)"/>
+    </svg>
+
+    <div class="seal" aria-hidden="true"><span>奇</span></div>
+    <h1 class="name">Jolie Ni</h1>
+    <p class="stand">I build AI systems for a living and write to find out what I actually think. What follows is an invitation, not a résumé.</p>
+    <ul class="meta">
+      <li>San Francisco</li><li>Founder, H.ai</li>
+    </ul>
+  </header>
+
+  <section class="sec reveal" id="now">
+    <p class="lab">Now</p>
+    <h2 class="h">What I am in the middle of.</h2>
+    <p class="lede">Running <b>H.ai</b>, an AI consulting and automation firm and an Anthropic Claude partner. Publishing <b>AI in the Field</b>, a newsletter about where AI adoption really breaks. Spending most of my week interviewing PE operators about the parts of their portfolio companies' work AI cannot touch yet.</p>
+
+    <ul class="current">
+      <li><span class="ck">Reading</span><span>The solow paradox in the AI era, what actually moved productivity needle <link>http://digamo.free.fr/david90.pdf</link> </span></li>
+      <li><span class="ck">Chewing on</span><span>How ordinary people rode previous tech bubbles, and what they saw too late.</span></li>
+    </ul>
+  </section>
+
+  <section class="sec reveal" id="questions">
+    <p class="lab">Open questions</p>
+    <h2 class="h">Six things I would rather talk about than the weather.</h2>
+    <ol class="qs">
+      <li class="q">
+        <h3 class="qt">Why adoption stalls</h3>
+        <p class="qb">The blocker is almost never model capability. It is that nobody has settled who captures the gain: the model company, the enterprise, the manager, or the person actually doing the work. Misattributed profit kills more rollouts than bad accuracy does.</p>
+      </li>
+      <li class="q">
+        <h3 class="qt">Every bubble, from the ground floor</h3>
+        <p class="qb">I read the history of tech bubbles with one question each time. What did an ordinary person actually do to ride the wave, and what did they understand only too late?</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="sec reveal" id="made">
+    <p class="lab">Made</p>
+    <h2 class="h">Things that exist because I made them.</h2>
+    <ul class="made">
+      <li>
+        <details class="m">
+          <summary>
+            <h3 class="mt">H.ai <small>2026 →</small></h3>
+            <p class="mb">AI consulting and automation for teams that have run out of patience with pilots. Anthropic Claude partner.</p>
+            <span class="cue" aria-hidden="true">More</span>
+          </summary>
+          <div class="mx"><p>I was laid off and decided not to job hunt. The bet was that the interesting problem in AI right now is not capability, it is getting capability to survive contact with a real company. So I go into businesses that have tried AI and been disappointed, find the place where the work actually gets stuck, and build the narrow thing that unsticks it. Mostly that means understanding an industry well enough to know which step nobody wants to do.</p></div>
+        </details>
+      </li>
+      <li>
+        <details class="m">
+          <summary>
+            <h3 class="mt">Counterfactual poker <small>2022</small></h3>
+            <p class="mb">Open-source Texas Hold'em AI using Counterfactual Regret Minimization, trainable on a personal computer.</p>
+            <span class="cue" aria-hidden="true">More</span>
+          </summary>
+          <div class="mx"><p>I brought the research topic to the professor rather than picking from his list, then led a team of three engineers. It won the UofT Sentinel Senior Project Award and the ECE Capstone Distinction Award.</p><p>The part I still care about is not the poker. It is the constraint. We were asking how much competence you can extract from a hard compute ceiling, which is the same question that decides whether access to AI ends up concentrated in the few places that can afford the compute. I picked the problem before I had the language for why it mattered.</p></div>
+        </details>
+      </li>
+      <li>
+        <details class="m">
+          <summary>
+            <h3 class="mt">Flexible Workforce Payment Architecture <small>Patent</small></h3>
+            <p class="mb">US patent, filed while building workforce management and banking infrastructure at Square.</p>
+            <span class="cue" aria-hidden="true">More</span>
+          </summary>
+          <div class="mx"><p>Payroll and scheduling infrastructure at a scale where a rounding error is somebody's rent. I also pitched a hackathon project to Jack Dorsey, which taught me more about how to frame an idea in ninety seconds than any amount of documentation ever did.</p></div>
+        </details>
+      </li>
+    </ul>
+  </section>
+
+
+  <section class="sec reveal" id="route">
+    <p class="lab">Route</p>
+    <h2 class="h">Four cities, and what each one took.</h2>
+    <ol class="route">
+      <li class="stop">
+        <p class="city">Beijing</p><span class="joint" aria-hidden="true"></span>
+        <div class="sb"><p class="yr">until 2014</p><p class="line">Hometown with a lot of childhood memories</p></div>
+      </li>
+      <li class="stop">
+        <p class="city">Vancouver</p><span class="joint" aria-hidden="true"></span>
+        <div class="sb"><p class="yr">2014 – 2017</p><p class="line">High school, met so many chinese international school with similar background</p></div>
+      </li>
+      <li class="stop">
+        <p class="city">Toronto</p><span class="joint" aria-hidden="true"></span>
+        <div class="sb"><p class="yr">2017 – 2025</p><p class="line">Engineering at UofT. Tears and hardwork. SDE at Square, made good friends</p></div>
+      </li>
+      <li class="stop">
+        <p class="city">San Francisco</p><span class="joint" aria-hidden="true"></span>
+        <div class="sb"><p class="yr">2025 – 2026</p><p class="line">Met so many exceptional people, truly eye opening</p></div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="sec reveal" id="writing">
+    <p class="lab">Writing</p>
+    <h2 class="h">I write in two languages and argue with myself in both.</h2>
+    <ul class="links">
+      <li class="lk"><a href="#">AI in the Field</a><span>Newsletter. Where adoption breaks, reported from inside real companies.</span></li>
+      <li class="lk"><a href="#"><span class="cjk">朱莉奇遇记</span></a><span>Xiaohongshu, in Chinese. Founding, money, privilege, two cultures.</span></li>
+    </ul>
+  </section>
+
+  <section class="sec cta reveal" id="contact">
+    <p class="lab">Talk to me about: AI adoption, Feminism, Chinese Culture, Philosiphy</p>
+    <h2 class="h narrow">If one of those questions is also yours, write to me.</h2>
+    <p class="qb wide">I would rather hear from someone who disagrees with the fifth one than from someone who liked the layout. No pitch necessary. Tell me what you are working on and where you are stuck.</p>
+    <a class="mail" href="mailto:jolieni@hconsult.ai">jolieni@hconsult.ai</a>
+    <ul class="elsewhere">
+      <li><a href="#">LinkedIn</a></li>
+      <li><a href="#">Medium</a></li>
+      <li><a href="#">GitHub</a></li>
+      <li><a href="#">Newsletter</a></li>
+    </ul>
+  </section>
+
+  <footer class="foot">
+    <span>Jolie Ni</span>
+    <span class="rule" aria-hidden="true"></span>
+    <span>San Francisco</span>
+    <span class="rule" aria-hidden="true"></span>
+    <span>Updated August 2026</span>
+  </footer>
+
+</main>
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+
+/* Reveal sections as they enter. */
+(function(){
+  var items = [].slice.call(document.querySelectorAll('.reveal'));
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {rootMargin:'0px 0px -12% 0px', threshold:0.06});
+  items.forEach(function(el){ io.observe(el); });
+})();
+
+/* Light the bamboo segment for the section you are reading. */
+(function(){
+  var links = [].slice.call(document.querySelectorAll('.rail-item a'));
+  if (!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){
+    var id = a.getAttribute('href').slice(1);
+    var sec = document.getElementById(id);
+    if (sec) map[id] = a.parentElement;
+  });
+  var visible = {};
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ visible[e.target.id] = e.isIntersecting ? e.intersectionRatio : 0; });
+    var best = null, bestRatio = 0;
+    Object.keys(visible).forEach(function(id){
+      if (visible[id] > bestRatio) { bestRatio = visible[id]; best = id; }
+    });
+    Object.keys(map).forEach(function(id){ map[id].classList.toggle('on', id === best); });
+  }, {rootMargin:'-18% 0px -50% 0px', threshold:[0,0.15,0.4,0.75,1]});
+  Object.keys(map).forEach(function(id){ io.observe(document.getElementById(id)); });
+})();
+
+</script>
+</body>
+</html>
